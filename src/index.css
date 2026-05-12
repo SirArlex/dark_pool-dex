@@ -1,0 +1,98 @@
+@import url('[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap)');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  html, body, #root { height: 100%; }
+
+  body {
+    @apply bg-zama-black text-white font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 1200px 600px at 20% 0%, rgba(255, 210, 8, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 800px 400px at 80% 100%, rgba(255, 210, 8, 0.04) 0%, transparent 60%);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+
+  /* ── Panels ─────────────────────────────────────────────────────────── */
+  .zama-panel {
+    @apply bg-zama-ink border border-zama-ash rounded-2xl;
+  }
+
+  .zama-panel-yellow {
+    @apply bg-zama-ink border border-zama-yellow/30 rounded-2xl;
+    box-shadow: 0 0 0 1px rgba(255, 210, 8, 0.15);
+  }
+
+  .zama-panel-glow {
+    @apply bg-zama-ink border border-zama-yellow/40 rounded-2xl;
+    box-shadow:
+      0 0 0 1px rgba(255, 210, 8, 0.25),
+      0 0 32px rgba(255, 210, 8, 0.08);
+  }
+
+  /* ── Buttons ────────────────────────────────────────────────────────── */
+  .btn-zama {
+    @apply px-6 py-3 bg-zama-yellow text-black font-bold rounded-xl
+           transition-all duration-150 active:scale-[0.98]
+           hover:bg-zama-yellowDim disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-zama-outline {
+    @apply px-6 py-3 bg-transparent border-2 border-zama-yellow text-zama-yellow font-bold
+           rounded-xl transition-all duration-150 active:scale-[0.98]
+           hover:bg-zama-yellow hover:text-black;
+  }
+
+  .btn-ghost {
+    @apply px-4 py-2 bg-zama-ash hover:bg-zama-slate border border-white/5
+           text-white font-medium rounded-lg transition-all duration-150;
+  }
+
+  /* ── Inputs ─────────────────────────────────────────────────────────── */
+  .input-zama {
+    @apply w-full bg-zama-coal border border-zama-ash rounded-xl px-4 py-3
+           text-white placeholder-white/20 font-mono
+           focus:outline-none focus:border-zama-yellow/60
+           focus:ring-2 focus:ring-zama-yellow/20
+           transition-all duration-150;
+  }
+
+  /* ── Encryption blur ────────────────────────────────────────────────── */
+  .encrypted-blur {
+    filter: blur(4px);
+    transition: filter 0.3s ease;
+  }
+  .encrypted-blur:hover { filter: blur(0); }
+
+  /* ── Status pill ────────────────────────────────────────────────────── */
+  .status-pill {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full
+           text-[10px] font-mono font-semibold border;
+  }
+
+  /* ── Badge variants ─────────────────────────────────────────────────── */
+  .badge-yellow  { @apply bg-zama-yellow/10 border-zama-yellow/40 text-zama-yellow; }
+  .badge-success { @apply bg-success/10      border-success/40      text-success;     }
+  .badge-danger  { @apply bg-danger/10       border-danger/40       text-danger;      }
+  .badge-mute    { @apply bg-white/5          border-white/10        text-white/50;    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar      { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255, 210, 8, 0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 210, 8, 0.4); }
+
+/* Subtle grid */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255, 210, 8, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 210, 8, 0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
